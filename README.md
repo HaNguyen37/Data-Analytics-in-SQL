@@ -5,7 +5,7 @@ Google Data Analytics Professional Capstone Project: The Cyclistic Bike-Share An
 
 This Case Study is a Capstone project for the Google Data Analytics Course by Coursera. For the purpose of this case study, I am the junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago.
 
-In 2016,Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.
+In 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime.
 
 Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments. One approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as Customer. People who purchase annual memberships are Subscriber
 
@@ -356,18 +356,18 @@ Note: 1 = 1 Sunday, 2 = Monday, 3 = 3 Tuesday, 4 = Wednesday, 5 = Thursday, 6 = 
 		ORDER BY month;
 		
 		Row	Month	Number_of_rides_for_subscriber	Number_of_rides_for_customer
-		1	 1	 98670	 4602
-		2	 2	 93548	 2638
-		3	 3	 149688	 15923
-		4	 4	 217566	 47744
-		5	 5	 285834	 81624
-		6	 6	 345177	 130218
-		7	 7	 381683	 175632
-		8	 8	 403295	 186889
-		9	 9	 364046	 129173
-		10	 10	 300751	 71035
-		11	 11	 158440	 18723
-		12	 12	 138662	 16430
+		1	 1	 98670	                        4602
+		2	 2	 93548	                        2638
+		3	 3	 149688	                        15923
+		4	 4	 217566	                        47744
+		5	 5	 285834	                        81624
+		6	 6	 345177	                        130218
+		7	 7	 381683	                        175632
+		8	 8	 403295	                        186889
+		9	 9	 364046	                        129173
+		10	 10	 300751	                        71035
+		11	 11	 158440	                        18723
+		12	 12	 138662	                        16430
 		
 		
 - Calculate number of rides by time of the day
