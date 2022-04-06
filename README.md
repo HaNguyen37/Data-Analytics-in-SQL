@@ -459,19 +459,19 @@ Note:
 Subscriber: People who purchase annual membership from Cyclistic
 Customer: People who purchase single-ride or full-day passes from Cyclistic
 
-	- In 2019,  the number of rides taken by Subscribers (or annual members) is 2,937,360 rides, accounts for about 77% of the total rides.
+In 2019,  the number of rides taken by Subscribers (or annual members) is 2,937,360 rides, accounts for about 77% of the total rides.
 	
-	- While the average ride duration of all riders is 24 minutes, this time for Subscriber is 14 minutes and Customer is 57 minutes. So the average ride length for a Customer is greater than a Subscriber by 43 minutes.
+While the average ride duration of all riders is 24 minutes, this time for Subscriber is 14 minutes and Customer is 57 minutes. So the average ride length for a Customer is greater than a Subscriber by 43 minutes.
 	
-	- Subscribers take trips more frequently on weekday with over 450,000 rides per day on weekday compare to under 290,000 rides per day on Saturday and Sunday. Whereas, Customers usually take trips during weekend with over 170,000 rides per day on Saturday and Sunday, compare to under 120,000 rides on weekday.
+Subscribers take trips more frequently on weekday with over 450,000 rides per day on weekday compare to under 290,000 rides per day on Saturday and Sunday. Whereas, Customers usually take trips during weekend with over 170,000 rides per day on Saturday and Sunday, compare to under 120,000 rides on weekday.
 	
-	- As Subscribers take trip more frequent on weekday, the peak hours for Subscribers are between 7am and 9am, and between 4pm and 6pm.
+As Subscribers take trip more frequent on weekday, the peak hours for Subscribers are between 7am and 9am, and between 4pm and 6pm.
 	
-	- Summer time in Chicago from June to August has the highest number of rides in both Subscriber and Customer.
+Summer time in Chicago from June to August has the highest number of rides in both Subscriber and Customer.
 	
-	- Male riders account significantly than Female riders in both Subscriber and Customer segment.
+Male riders account significantly than Female riders in both Subscriber and Customer segment.
 	
-	- The most popular birthyears for both Subscriber and Customer are quite similar, from 1989 to 1992.
+The most popular birthyears for both Subscriber and Customer are quite similar, from 1989 to 1992.
 	
 
 **Data Visualisation**
