@@ -24,9 +24,9 @@ The dataset for analysis is stored locally for the purpose of this project. The 
 Tools used: Spreadsheet and SQL
 Data processing steps:
 
-	- Use spreadsheet to get familiar with dataset, check columns in each spreadsheet for consistence.
+- Use spreadsheet to get familiar with dataset, check columns in each spreadsheet for consistence.
 	
-	- Combine dataset of four separate quarterly data files into one single worksheet of the year 2019 by using SQL
+- Combine dataset of four separate quarterly data files into one single worksheet of the year 2019 by using SQL
 	
 			SELECT *
 			 FROM `portfolio-346202.2019_divvy_tripdata.2019Q1_tripdata` 
@@ -41,28 +41,28 @@ Data processing steps:
 			 from `portfolio-346202.2019_divvy_tripdata.2019Q4_tripdata` 
 			 order by start_time;
 			 
-	- Verify that number of rows in the combined table equal the total number of rows from four separate tables.
+- Verify that number of rows in the combined table equal the total number of rows from four separate tables.
 	
-	- Check and remove duplicate values.
+- Check and remove duplicate values.
 	
 			    SELECT trip_id, COUNT(*)
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata` 
 			    GROUP BY trip_id
 			    HAVING COUNT(*) >1;
 	
-	- Create a column called “ride_length.” Calculating the length of each ride by subtracting the column “started_at” from the column “ended_at” . Deleted rows with ride_length value < 0
+- Create a column called “ride_length.” Calculating the length of each ride by subtracting the column “started_at” from the column “ended_at” . Deleted rows with ride_length value < 0
 			
 			    SELECT
 			        *,
 			        TIMESTAMP_DIFF(end_time,start_time,second) as ride_length
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata`;
 			
-	- Delete rows with ride_length < 0 (There are 13 rows have ride_length value < 0)
+- Delete rows with ride_length < 0 (There are 13 rows have ride_length value < 0)
 	
 			    DELETE FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 			    WHERE ride_length < 0;
 			    
-	- Check Null Values in columns: trip_id, start_time, end_time, usertype. And trim data in all columns with data type of string to remove unintended whitespaces
+- Check Null Values in columns: trip_id, start_time, end_time, usertype. And trim data in all columns with data type of string to remove unintended whitespaces
 			
 			    SELECT *
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
@@ -80,14 +80,14 @@ Data processing steps:
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 			    WHERE usertype IS NULL;
 			
-	- Trim data
+- Trim data
 	
 			    SELECT
 			        TRIM(from_station_name),
 			        TRIM(to_station_name), TRIM(usertype), TRIM(gender), 
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`;
 			    
-	- Count NULL Values in columns gender and birthyear.
+- Count NULL Values in columns gender and birthyear.
 	
 	
 			SELECT 
@@ -459,19 +459,19 @@ Note:
 Subscriber: People who purchase annual membership from Cyclistic
 Customer: People who purchase single-ride or full-day passes from Cyclistic
 
-In 2019,  the number of rides taken by Subscribers (or annual members) is 2,937,360 rides, accounts for about 77% of the total rides.
+- In 2019,  the number of rides taken by Subscribers (or annual members) is 2,937,360 rides, accounts for about 77% of the total rides.
 	
-While the average ride duration of all riders is 24 minutes, this time for Subscriber is 14 minutes and Customer is 57 minutes. So the average ride length for a Customer is greater than a Subscriber by 43 minutes.
+- While the average ride duration of all riders is 24 minutes, this time for Subscriber is 14 minutes and Customer is 57 minutes. So the average ride length for a Customer is greater than a Subscriber by 43 minutes.
 	
-Subscribers take trips more frequently on weekday with over 450,000 rides per day on weekday compare to under 290,000 rides per day on Saturday and Sunday. Whereas, Customers usually take trips during weekend with over 170,000 rides per day on Saturday and Sunday, compare to under 120,000 rides on weekday.
+- Subscribers take trips more frequently on weekday with over 450,000 rides per day on weekday compare to under 290,000 rides per day on Saturday and Sunday. Whereas, Customers usually take trips during weekend with over 170,000 rides per day on Saturday and Sunday, compare to under 120,000 rides on weekday.
 	
-As Subscribers take trip more frequent on weekday, the peak hours for Subscribers are between 7am and 9am, and between 4pm and 6pm.
+- As Subscribers take trip more frequent on weekday, the peak hours for Subscribers are between 7am and 9am, and between 4pm and 6pm.
 	
-Summer time in Chicago from June to August has the highest number of rides in both Subscriber and Customer.
+- Summer time in Chicago from June to August has the highest number of rides in both Subscriber and Customer.
 	
-Male riders account significantly than Female riders in both Subscriber and Customer segment.
+- Male riders account significantly than Female riders in both Subscriber and Customer segment.
 	
-The most popular birthyears for both Subscriber and Customer are quite similar, from 1989 to 1992.
+- The most popular birthyears for both Subscriber and Customer are quite similar, from 1989 to 1992.
 	
 
 **Data Visualisation**
@@ -480,7 +480,7 @@ Create data visualisation to better share the findings.
 
 Please click here to see the interactive dashboard in Tableau Public,
 
-Or This ULR: https://public.tableau.com/authoring/TheCyclisticbike-shareanalysis/Dashboard1#1
+Or click this ULR: https://public.tableau.com/authoring/TheCyclisticbike-shareanalysis/Dashboard1#1
 
  ![image](https://user-images.githubusercontent.com/103098013/161947093-8268b901-76b0-4105-87ff-c12bea22f7fa.png)
 
@@ -489,13 +489,13 @@ Or This ULR: https://public.tableau.com/authoring/TheCyclisticbike-shareanalysis
 		
 To design marketing strategies aimed at converting casual riders (or Customers) who purchase single ride or full-day passes into members (or Subscribers) who purchase annual memberships from Cyclistic, there are three main recommendations from the findings of the data analysis stage:
 		 
-**Targeting the young demographic range between 25 and 35 on social media platforms**
+- **Targeting the young demographic range between 25 and 35 on social media platforms**
 The riders with the birth year between 1989 and 1995 contributed significantly to the number of rides for both casual riders and members. Therefore, creating marketing campaigns on different social media platforms that focus on young riders has more potential to convert them into members.
 		 
-**Target female customers**
+- **Target female customers**
 In the Subscriber segment, the number of Male riders is three times higher than Female riders, while this ratio in the Customer segment is 1.5 Male riders vs. 1 Female rider. These numbers show that the are lots of interest from female customers but the conversion rate to Subscribers seems low.
 		 
-**Increasing promotion campaigns in Summer**
+- **Increasing promotion campaigns in Summer**
 Summertime in Chicago from June to August is the favourite time for riders in both Subscribers and Customers. Creating marketing campaigns that are suitable with time and seasons for riders would convert casual riders to members of Cyclistic.
 
 
