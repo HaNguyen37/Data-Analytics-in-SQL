@@ -25,7 +25,7 @@ Tools used: Spreadsheet and SQL
 Data processing steps:
 	- Use spreadsheet to get familiar with dataset, check columns in each spreadsheet for consistence.
 	- Combine dataset of four separate quarterly data files into one single worksheet of the year 2019 by using SQL
-			-- Merge seperate quaterly data tables into a single table
+	
 			
 			SELECT *
 			 FROM `portfolio-346202.2019_divvy_tripdata.2019Q1_tripdata` 
@@ -39,26 +39,30 @@ Data processing steps:
 			 select *
 			 from `portfolio-346202.2019_divvy_tripdata.2019Q4_tripdata` 
 			 order by start_time;
+			 
 	- Verify that number of rows in the combined table equal the total number of rows from four separate tables.
 	- Check and remove duplicate values.
-			-- Check Duplicate Values. No duplicate value was found.
+	
 			    SELECT trip_id, COUNT(*)
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata` 
 			    GROUP BY trip_id
 			    HAVING COUNT(*) >1;
 	
 	- Create a column called “ride_length.” Calculating the length of each ride by subtracting the column “started_at” from the column “ended_at” . Deleted rows with ride_length value < 0
-			-- Create a column called “ride_length.” Calculate the length of each ride by subtracting the column “started_at” from the column “ended_at”
+			
+			
 			    SELECT
 			        *,
 			        TIMESTAMP_DIFF(end_time,start_time,second) as ride_length
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata`;
 			
-			-- Delete rows with ride_length < 0 (There are 13 rows have ride_length value < 0)
+	- Delete rows with ride_length < 0 (There are 13 rows have ride_length value < 0)
+	
 			    DELETE FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 			    WHERE ride_length < 0;
+			    
 	- Check Null Values in columns: trip_id, start_time, end_time, usertype. And trim data in all columns with data type of string to remove unintended whitespaces
-			-- Check Null Values
+			
 			    SELECT *
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 			    WHERE trip_id IS NULL;
@@ -75,13 +79,16 @@ Data processing steps:
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 			    WHERE usertype IS NULL;
 			
-			-- Trim data
+	- Trim data
+	
 			    SELECT
 			        TRIM(from_station_name),
 			        TRIM(to_station_name), TRIM(usertype), TRIM(gender), 
 			    FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`;
+			    
 	- Count NULL Values in columns gender and birthyear.
-			-- Count Null Values in columns gender and birthyear
+	
+	
 			SELECT 
 			 COUNTIF(gender is NULL)/COUNT(1) as null_gender,
 			 COUNTIF (birthyear is NULL)/COUNT(1) as null_birthyear
@@ -90,6 +97,43 @@ Data processing steps:
 ![image](https://user-images.githubusercontent.com/103098013/161942673-8970bbd4-54cb-4751-9254-a75f82ee11bd.png)
 			
 (Note: As Null Values account for about 14% in columns of gender and birthyear, the demographic analysis results might bias)
+
+**Analysing Data**
+
+Now the data is stored appropriately and has been prepared for analysis. Next step is analysing the Cyclistic historical bike trip data to identify trends.
+
+Calculations: 
+	- Number of rides by users in 2019 
+	- The mean of ride length, The average ride length by riders
+	- Number of rides for all user types by hour, by day of week, and by month
+	
+		-- Calculate number of riders in 2019
+		
+		SELECT usertype, count(*) as Number_of_rides
+		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
+		GROUP BY usertype;
+		
+		Row	usertype	Number_of_rides
+		1	 Subscriber	 2937360
+		2	 Customer	 880631
+
+		-- Calculate number of rides by Subscriber riders' gender
+		
+		SELECT gender, count(*) as Number_of_Subscribers
+		From `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
+		WHERE usertype = "Subscriber"
+		Group By gender;
+		
+		Row	gender	Number_of_Subscribers
+		1	unknown	 22751
+		2	Male	 2188071
+		3	Female	 726538
+
+
+
+
+
+
 
 
 
