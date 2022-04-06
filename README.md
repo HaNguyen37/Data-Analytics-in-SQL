@@ -141,10 +141,10 @@ Calculations:
 		WHERE usertype = "Customer"
 		Group By gender;
 		
-Row	 gender	    Number_of_Customers
-1	 unknown    536450
-2	 Male	    212742
-3	 Female	    131439
+		Row	 gender	    Number_of_Customers
+		1	 unknown    536450
+		2	 Male	    212742
+		3	 Female	    131439
 		
 - Calculate the average birthyear for Subcriber and Customer riders
 		
@@ -152,9 +152,9 @@ Row	 gender	    Number_of_Customers
 		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 		GROUP BY usertype;
 		
-Row	 Birth_Year	         usertype
-1	 1983.6026794685804	 Subscriber
-2	 1988.0449491120194	 Customer
+		Row	 Birth_Year	         usertype
+		1	 1983.6026794685804	 Subscriber
+		2	 1988.0449491120194	 Customer
 		
 - Calculate top 5 birthyear for Subscribers
 		
@@ -165,12 +165,12 @@ Row	 Birth_Year	         usertype
 		ORDER BY Subscriber_rides DESC
 		LIMIT 5;
 		
-Row	birthyear	Subscriber_rides
-1	 1992	        182199
-2	 1989	        171254
-3	 1990	        165733
-4	 1993	        164432
-5	 1991	        162024
+		Row	birthyear	Subscriber_rides
+		1	 1992	        182199
+		2	 1989	        171254
+		3	 1990	        165733
+		4	 1993	        164432
+		5	 1991	        162024
 		
 		
 - Calculate top 5 birthyear for Customer
@@ -182,13 +182,13 @@ Row	birthyear	Subscriber_rides
 		ORDER BY Customer_rides DESC
 		LIMIT 6;
 		
-Row	birthyear	Customer_rides
-1	 null	        532415
-2	 1994	        24815
-3	 1995	        24623
-4	 1993	        23363
-5	 1992	        21462
-6	 1989	        20707
+		Row	birthyear	Customer_rides
+		1	 null	        532415
+		2	 1994	        24815
+		3	 1995	        24623
+		4	 1993	        23363
+		5	 1992	        21462
+		6	 1989	        20707
 		
 		
 - Calculate the mean of ride_length
@@ -196,8 +196,8 @@ Row	birthyear	Customer_rides
 		SELECT AVG(ride_length) AS MeanTime
 		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`;
 		
-Row	 MeanTime
-1	 1450.465627603676
+		Row	 MeanTime
+		1	 1450.465627603676
 		
 		
 - Calculate the mean of ride_length for Subscriber and Customer riders
@@ -206,9 +206,9 @@ Row	 MeanTime
 		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 		GROUP BY usertype;
 		
-Row	 MeanTime	         usertype
-1	 859.66807064849331	 Subscriber
-2	 3421.0811429531864	 Customer
+		Row	 MeanTime	         usertype
+		1	 859.66807064849331	 Subscriber
+		2	 3421.0811429531864	 Customer
 		
 		
 - Calculate max ride_length
@@ -217,26 +217,26 @@ Row	 MeanTime	         usertype
 		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 		GROUP BY usertype;
 		
-Row	Max_ride_length	   usertype
-1	9056634	           Subscriber
-2	10632022	   Customer
+		Row	Max_ride_length	   usertype
+		1	9056634	           Subscriber
+		2	10632022	   Customer
 		
 		
 - Calculate number of rides by day of week
-- 
+
 		SELECT EXTRACT(DAYOFWEEK from start_time) as day_of_week, Count(*) as Number_of_rides
 		FROM `portfolio-346202.2019_divvy_tripdata.2019_tripdata_cleaned`
 		GROUP BY day_of_week
 		ORDER BY day_of_week;
 		
-Row  day_of_week	Number_of_rides
-1	 1	        426407
-2	 2	        560269
-3	 3	        585680
-4	 4	        584022
-5	 5	        588287
-6	 6	        578107
-7	 7	        495219
+		Row  day_of_week	Number_of_rides
+		1	 1	        426407
+		2	 2	        560269
+		3	 3	        585680
+		4	 4	        584022
+		5	 5	        588287
+		6	 6	        578107
+		7	 7	        495219
 		
 Note: 1 = 1 Sunday, 2 = Monday, 3 = 3 Tuesday, 4 = Wednesday, 5 = Thursday, 6 = Friday, 7 = Saturday
 		
@@ -269,14 +269,14 @@ Note: 1 = 1 Sunday, 2 = Monday, 3 = 3 Tuesday, 4 = Wednesday, 5 = Thursday, 6 = 
 		ON a.day_of_week = b.day_of_week
 		ORDER BY day_of_week;
 		
-Row day_of_week	Number_of_rides_for_subscriber	Number_of_rides_for_customer
-1	 1	 256234	                        170173
-2	 2	 458780	                        101489
-3	 3	 497025	                        88655
-4	 4	 494277	                        89745
-5	 5	 486915	                        101372
-6	 6	 456966	                        121141
-7	 7	 287163	                        208056
+		Row day_of_week	Number_of_rides_for_subscriber	Number_of_rides_for_customer
+		1	 1	 256234	                        170173
+		2	 2	 458780	                        101489
+		3	 3	 497025	                        88655
+		4	 4	 494277	                        89745
+		5	 5	 486915	                        101372
+		6	 6	 456966	                        121141
+		7	 7	 287163	                        208056
 		
 	
 - Calculate the average ride_length for users by day_of_week
@@ -300,14 +300,14 @@ Row day_of_week	Number_of_rides_for_subscriber	Number_of_rides_for_customer
 		ON a.day_of_week = b.day_of_week
 		ORDER BY day_of_week;
 		
-Row	day_of_week  Average_ridelength_for_subscriber  Average_ridelength_for_customer
-1	 1	     924.17411038347973	                3371.1116922190949
-2	 2	     854.9570316927485	                3269.9933588861895
-3	 3	     849.15551934008079	                3444.7970334442443
-4	 4	     828.59068498027693	                3620.0439801660259
-5	 5	     826.78751116724345	                3597.0673558773542
-6	 6	     833.848656136343	                3610.5366391230209
-7	 7	     978.16230503234044	                3243.6666234090994
+		Row	day_of_week  Average_ridelength_for_subscriber  Average_ridelength_for_customer
+		1	 1	     924.17411038347973	                3371.1116922190949
+		2	 2	     854.9570316927485	                3269.9933588861895
+		3	 3	     849.15551934008079	                3444.7970334442443
+		4	 4	     828.59068498027693	                3620.0439801660259
+		5	 5	     826.78751116724345	                3597.0673558773542
+		6	 6	     833.848656136343	                3610.5366391230209
+		7	 7	     978.16230503234044	                3243.6666234090994
 		
 		
 - Calculate number of rides by month
@@ -319,19 +319,19 @@ Row	day_of_week  Average_ridelength_for_subscriber  Average_ridelength_for_custo
 		GROUP BY Month
 		ORDER BY Month;
 		
-Row	Month	Number_of_rides
-1	 1	 103272
-2	 2	 96186
-3	 3	 165611
-4	 4	 265310
-5	 5	 367458
-6	 6	 475395
-7	 7	 557315
-8	 8	 590184
-9	 9	 493219
-10	 10	 371786
-11	 11	 177163
-12	 12	 155092
+		Row	Month	Number_of_rides
+		1	 1	 103272
+		2	 2	 96186
+		3	 3	 165611
+		4	 4	 265310
+		5	 5	 367458
+		6	 6	 475395
+		7	 7	 557315
+		8	 8	 590184
+		9	 9	 493219
+		10	 10	 371786
+		11	 11	 177163
+		12	 12	 155092
 		
 		
 - Calculate number of rides for Subscriber and Customer riders by month
@@ -355,19 +355,19 @@ Row	Month	Number_of_rides
 		ON a.month = b.month
 		ORDER BY month;
 		
-Row	Month	Number_of_rides_for_subscriber	Number_of_rides_for_customer
-1	 1	 98670	 4602
-2	 2	 93548	 2638
-3	 3	 149688	 15923
-4	 4	 217566	 47744
-5	 5	 285834	 81624
-6	 6	 345177	 130218
-7	 7	 381683	 175632
-8	 8	 403295	 186889
-9	 9	 364046	 129173
-10	 10	 300751	 71035
-11	 11	 158440	 18723
-12	 12	 138662	 16430
+		Row	Month	Number_of_rides_for_subscriber	Number_of_rides_for_customer
+		1	 1	 98670	 4602
+		2	 2	 93548	 2638
+		3	 3	 149688	 15923
+		4	 4	 217566	 47744
+		5	 5	 285834	 81624
+		6	 6	 345177	 130218
+		7	 7	 381683	 175632
+		8	 8	 403295	 186889
+		9	 9	 364046	 129173
+		10	 10	 300751	 71035
+		11	 11	 158440	 18723
+		12	 12	 138662	 16430
 		
 		
 - Calculate number of rides by time of the day
@@ -379,31 +379,31 @@ Row	Month	Number_of_rides_for_subscriber	Number_of_rides_for_customer
 		GROUP BY Hour
 		ORDER BY Hour;
 		
-Row	Hour	Number_of_rides
-1	 0	 24078
-2	 1	 14404
-3	 2	 8664
-4	 3	 5611
-5	 4	 7789
-6	 5	 35770
-7	 6	 108232
-8	 7	 237708
-9	 8	 305780
-10	 9	 163833
-11	 10	 145464
-12	 11	 179966
-13	 12	 206267
-14	 13	 207125
-15	 14	 206385
-16	 15	 243440
-17	 16	 375778
-18	 17	 475154
-19	 18	 315253
-20	 19	 208760
-21	 20	 134160
-22	 21	 96193
-23	 22	 69701
-24	 23	 42476
+		Row	Hour	Number_of_rides
+		1	 0	 24078
+		2	 1	 14404
+		3	 2	 8664
+		4	 3	 5611
+		5	 4	 7789
+		6	 5	 35770
+		7	 6	 108232
+		8	 7	 237708
+		9	 8	 305780
+		10	 9	 163833
+		11	 10	 145464
+		12	 11	 179966
+		13	 12	 206267
+		14	 13	 207125
+		15	 14	 206385
+		16	 15	 243440
+		17	 16	 375778
+		18	 17	 475154
+		19	 18	 315253
+		20	 19	 208760
+		21	 20	 134160
+		22	 21	 96193
+		23	 22	 69701
+		24	 23	 42476
 		
 		
 - Calculate number of rides for Subscriber and Customer riders by time of the day
@@ -427,31 +427,31 @@ Row	Hour	Number_of_rides
 		ON a.Hour = b.Hour
 		ORDER BY Hour;
 		
-Row	Hour	Number_of_rides_for_subscriber	Number_of_rides_for_customer
-1	 0	 15874	                        8204
-2	 1	 9026	                        5378
-3	 2	 5329	                        3335
-4	 3	 3686	                        1925
-5	 4	 6614	                        1175
-6	 5	 33156	                        2614
-7	 6	 102141	                        6091
-8	 7	 224842	                        12866
-9	 8	 283982	                        21798
-10	 9	 135131	                        28702
-11	 10	 100700	                        44764
-12	 11	 119930	                        60036
-13	 12	 136676	                        69591
-14	 13	 131946	                        75179
-15	 14	 127914	                        78471
-16	 15	 163346	                        80094
-17	 16	 292901	                        82877
-18	 17	 390667	                        84487
-19	 18	 247234	                        68019
-20	 19	 158385	                        50375
-21	 20	 99757	                        34403
-22	 21	 71268	                        24925
-23	 22	 48535	                        21166
-24	 23	 28320	                        14156
+		Row	Hour	Number_of_rides_for_subscriber	Number_of_rides_for_customer
+		1	 0	 15874	                        8204
+		2	 1	 9026	                        5378
+		3	 2	 5329	                        3335
+		4	 3	 3686	                        1925
+		5	 4	 6614	                        1175
+		6	 5	 33156	                        2614
+		7	 6	 102141	                        6091
+		8	 7	 224842	                        12866
+		9	 8	 283982	                        21798
+		10	 9	 135131	                        28702
+		11	 10	 100700	                        44764
+		12	 11	 119930	                        60036
+		13	 12	 136676	                        69591
+		14	 13	 131946	                        75179
+		15	 14	 127914	                        78471
+		16	 15	 163346	                        80094
+		17	 16	 292901	                        82877
+		18	 17	 390667	                        84487
+		19	 18	 247234	                        68019
+		20	 19	 158385	                        50375
+		21	 20	 99757	                        34403
+		22	 21	 71268	                        24925
+		23	 22	 48535	                        21166
+		24	 23	 28320	                        14156
 		
 
 **Summary of my analysis: Differences between Subscriber and Customer**
